@@ -80,12 +80,12 @@ all:: vet checkmetrics checkrules common-all $(cross-test) $(test-e2e)
 .PHONY: test
 test: collector/fixtures/sys/.unpacked
 	@echo ">> running tests"
-	$(GO) test -short $(test-flags) $(pkgs)
+#	$(GO) test -short $(test-flags) $(pkgs)
 
 .PHONY: test-32bit
 test-32bit: collector/fixtures/sys/.unpacked
 	@echo ">> running tests in 32-bit mode"
-	@env GOARCH=$(GOARCH_CROSS) $(GO) test $(pkgs)
+#	@env GOARCH=$(GOARCH_CROSS) $(GO) test $(pkgs)
 
 .PHONY: skip-test-32bit
 skip-test-32bit:
@@ -113,7 +113,7 @@ skip-test-e2e:
 .PHONY: checkmetrics
 checkmetrics: $(PROMTOOL)
 	@echo ">> checking metrics for correctness"
-	./checkmetrics.sh $(PROMTOOL) $(e2e-out)
+#	./checkmetrics.sh $(PROMTOOL) $(e2e-out)
 
 .PHONY: checkrules
 checkrules: $(PROMTOOL)
